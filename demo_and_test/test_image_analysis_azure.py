@@ -3,15 +3,13 @@
 
     dependency:     python, azure cognitive, unittest
     reference:      image_analysis_azure
-    notes:
-
+    notes:          as a sample for image analysis 
 """
 
 import unittest
 
 import os
 import sys
-import time
 
 '''
     add path to package
@@ -89,10 +87,10 @@ if __name__ == "__main":
 
 '''
 # manual test = when running in VSCode
-
-# x = TestImageAnalysisAzure()
-# x.test_image_description()
-# x.test_image_analysis()
-# x.test_object_detect()
-# x.test_domain_access()
 '''
+
+x = TestImageAnalysisAzure()
+x.test_image_description()
+x.test_image_analysis()
+x.test_object_detect()
+x.test_domain_access()

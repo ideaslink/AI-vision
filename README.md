@@ -11,6 +11,10 @@ The application provides AI features for image, video, and their relevant conten
 - attributes in image and video
 - and more
 
+# Showcase
+
+![Screenshot](media/trump_td.jpg)
+
 # Tools 
 
 AI, Azure Cognitive, Cloud, Python, C#...
@@ -24,7 +28,7 @@ Azure cognitive sdk
 @Ideaslink
 
 # Version history
-version 1.0.0.1
+version 2.0.0.1
 
 # License
 MIT

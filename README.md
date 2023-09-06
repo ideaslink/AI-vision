@@ -1,6 +1,11 @@
 # AI-vision
 AI vision - image, video and their relevant contents.
 
+# Screenshot
+
+![Test image](assets/trump_td.jpg)
+![Results](assets/image_analysis_results.PNG)
+
 # Description
 
 The application provides AI features for image, video, and their relevant contents.
@@ -10,10 +15,6 @@ The application provides AI features for image, video, and their relevant conten
 - abnormal activity
 - attributes in image and video
 - and more
-
-# Showcase
-
-![Screenshot](assets/trump_td.jpg)
 
 # Tools 
 

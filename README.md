@@ -13,7 +13,7 @@ The application provides AI features for image, video, and their relevant conten
 
 # Showcase
 
-![Screenshot](media/trump_td.jpg)
+![Screenshot](assets/trump_td.jpg)
 
 # Tools 
 

@@ -14,5 +14,5 @@ COG_VISION_ENDPOINT = '<Paste your endpoint here>'
     image for test
 '''
 
-IMAGE_URL_1 = '<paste your image url'
+IMAGE_URL_1 = '<paste your image url>'
 

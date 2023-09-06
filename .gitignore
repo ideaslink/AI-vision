@@ -54,3 +54,7 @@ pip-log.txt
 # Other
 .DS_Store
 Thumbs.db
+
+# custom
+secretvars.py
+secrets.py

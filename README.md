@@ -34,7 +34,7 @@ Azure cognitive sdk
 Azure cognitive, Azure AI
 
 # Version history
-version 2.0.0.1
+version 2.0.0.2
 
 # License
 MIT

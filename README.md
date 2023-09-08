@@ -26,7 +26,12 @@ install vs code (if necessary)
 Azure cognitive sdk
 
 # Authors
+
 @Ideaslink
+
+# Acknowledgement
+
+Azure cognitive, Azure AI
 
 # Version history
 version 2.0.0.1

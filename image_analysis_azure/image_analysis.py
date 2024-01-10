@@ -1,8 +1,16 @@
 """
     image analysis by azure cognitive
 
-    dependency: azure, cognitive, computer vision, python
+    dependency: azure, azure Ai/cognitive, computer vision, python
     reference: ms cognitive doc
+
+    features:
+    - describing image
+    - analyzing image
+    - tagging image
+    - detecting objects
+    - accessing domains
+
     notes:
 
 """
@@ -101,7 +109,7 @@ class ImageAnalysis:
         Detect Adult or Racy Content - detects adult or racy content
         '''
 
-        print("]ndetecting Adult or Racy Content\n")
+        print("\ndetecting Adult or Racy Content\n")
         # Select features - adult
         image_feature_adult = ["adult"]
         adult_results = self.computervisionclient.analyze_image(image_url, image_feature_adult)

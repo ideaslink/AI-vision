@@ -81,13 +81,13 @@ if __name__ == "__main__":
     unittest.main()
 
 
-'''
-# manual test = when running in VSCode
-'''
+# '''
+# # manual test = when running in VSCode
+# '''
 
-# x = TestImageAnalysisAzure()
-# x.test_image_description()
-# x.test_image_analysis()
-# x.test_object_detect()
-# x.test_domain_access()
+# # x = TestImageAnalysisAzure()
+# # x.test_image_description()
+# # x.test_image_analysis()
+# # x.test_object_detect()
+# # x.test_domain_access()
 

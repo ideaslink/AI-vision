@@ -7,7 +7,6 @@
 """
 
 import unittest
-
 import os
 import sys
 
@@ -24,16 +23,13 @@ from image_analysis_azure.image_analysis import ImageAnalysis
 import image_analysis_azure.secretvars as commvar
 
 
-
 class TestImageAnalysisAzure(unittest.TestCase):
-
     """
         test functions - image_analysis_azure
         note: serve as demo and showcase
     """
 
     def __init__(self, *args, **kwargs):
-
         """
             init: create an instance of image_analysis_azure
         """
@@ -81,7 +77,7 @@ class TestImageAnalysisAzure(unittest.TestCase):
         self.assertTrue(1)
 
 
-if __name__ == "__main":
+if __name__ == "__main__":
     unittest.main()
 
 
@@ -89,8 +85,9 @@ if __name__ == "__main":
 # manual test = when running in VSCode
 '''
 
-x = TestImageAnalysisAzure()
-x.test_image_description()
-x.test_image_analysis()
-x.test_object_detect()
-x.test_domain_access()
+# x = TestImageAnalysisAzure()
+# x.test_image_description()
+# x.test_image_analysis()
+# x.test_object_detect()
+# x.test_domain_access()
+

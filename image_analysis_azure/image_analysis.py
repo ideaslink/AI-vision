@@ -1,8 +1,8 @@
 """
     image analysis by azure cognitive
 
-    dependency: azure, azure Ai/cognitive, computer vision, python
-    reference: ms cognitive doc
+    dependency:     azure, azure Ai/cognitive, computer vision, python
+    reference:      ms cognitive doc
 
     features:
     - describing image
@@ -55,7 +55,7 @@ class ImageAnalysis:
         image category
         """
 
-        print('describing image...\n')
+        print('\ndescribing image...\n')
         print('\ngetting image category...')
 
         # select features - category

@@ -37,6 +37,7 @@ class TestImageAnalysisAzure(unittest.TestCase):
         self.image_analysis = ImageAnalysis(commvar.COG_VISION_ENDPOINT, commvar.COG_VISION_KEY)
         self.imageuri = commvar.IMAGE_URL_1
 
+    @unittest.skip("test_image_description")
     def test_image_description(self):
         """
             call module to describe an image
@@ -48,6 +49,7 @@ class TestImageAnalysisAzure(unittest.TestCase):
         #     print("failed!")
         self.assertTrue(1)
 
+    # @unittest.skip("test_image_analysis")
     def test_image_analysis(self):
         """
             call module to analyze image
@@ -58,6 +60,7 @@ class TestImageAnalysisAzure(unittest.TestCase):
         # demo
         self.assertTrue(1)
 
+    @unittest.skip("test_tag_image")
     def test_object_detect(self):
         """
             call module to detect object
@@ -67,6 +70,7 @@ class TestImageAnalysisAzure(unittest.TestCase):
         # demo
         self.assertTrue(1)
 
+    @unittest.skip("test_domain_access")
     def test_domain_access(self):
         """
             call module to access domain

@@ -41,14 +41,21 @@ class TestFaceAnalysisAzure(unittest.TestCase):
         """
             call module to analysis faces in an image
         """
-        print("\ntesting - face analysis...\n")
-        print(f"image uri: {self.imageuri}\n")
-        self.face_analysis.analyze_faces(self.imageuri)
+        try:
+            exception = None
+            self.face_analysis.analyze_faces(self.imageuri)
+        except Exception as context:
+            exception = context
+            print(f"failed: {context}")
+
+        # with self.assertRaises(Exception) as context:
+        #     self.face_analysis.analyze_faces(self.imageuri)
 
         # demo purpose, make it pass
         # with self.assertRaises(Exception):
         #     print("failed!")
-        self.assertTrue(1)
+        self.assertIsNone(exception, f"Face analysis failed: {exception}")
+        # self.assertIn("Invalid request", str(context.exception), "")
 
     
 if __name__ == "__main__":

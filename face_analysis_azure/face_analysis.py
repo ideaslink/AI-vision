@@ -27,7 +27,7 @@ class FaceAnalysis:
         """
         self.faceapiclient = FaceClient(faceapi_endpoint, CognitiveServicesCredentials(faceapi_key))
 
-    def analyze_faces(self, image_url):
+    def analyze_faces(self, image_url, features=None):
         """
         analyze faces
         """
@@ -36,28 +36,28 @@ class FaceAnalysis:
         # analyze image and get face attributes
 
         # get face attributes
-        features = [FaceAttributeType.glasses]
-
+        if features is None:
+            features = [FaceAttributeType.age, FaceAttributeType.gender, FaceAttributeType.smile, FaceAttributeType.glasses, FaceAttributeType.emotion]
+              
         # features = [FaceAttributeType.age, FaceAttributeType.gender, FaceAttributeType.smile, FaceAttributeType.facialHair, FaceAttributeType.glasses, FaceAttributeType.emotion, ]
         # resp = requests.get(image_url)
         # image = BytesIO(resp.content)
         # image.show()
 
-        # detected_faces = self.faceapiclient.face.detect_with_stream(image=image, return_face_attributes=features, return_face_id=True)
-        # detected_faces = self.faceapiclient.face.detect_with_url(url=image_url, return_face_attributes=features)
+        # with open("trump_td.jpg", "rb") as f:
+            # detected_faces = self.faceapiclient.face.detect_with_stream(image=f, return_face_attributes=features, return_face_id=True)
+       
+        detected_faces = self.faceapiclient.face.detect_with_url(url=image_url, return_face_attributes=features)
 
-        with open("trump_td.jpg", "rb") as f:
-            detected_faces = self.faceapiclient.face.detect_with_stream(image=f, return_face_attributes=features, return_face_id=True)
-    
-            if not detected_faces:
-                print("No face detected in the image.")
-                return
+        if not detected_faces:
+            print("No face detected in the image.")
+            return
 
-            for face in detected_faces:
-                # print(f"\nFace ID: {face.face_id}\n")
-                print("\nFace attributes:\n")
-                # attrs = face.face_attributes.as_dict()
-                # for attr, value in attrs.items():
-                #     print(f"  {attr}: {value}")
-                    # print("  Age: {}".format(face.face_attributes.age)) 
-                
+        for face in detected_faces:
+            # print(f"\nFace ID: {face.face_id}\n")
+            print("\nFace attributes:\n")
+            attrs = face.face_attributes.as_dict()
+            for attr, value in attrs.items():
+                print(f"\n  {attr}: {value}")
+
+            

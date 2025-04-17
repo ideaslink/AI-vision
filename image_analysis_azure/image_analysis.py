@@ -95,15 +95,76 @@ class ImageAnalysis:
         image_feature_face = ["faces"]
         face_results = self.computervisionclient.analyze_image(image_url, image_feature_face)
 
-        print("Faces in the remote image: ")
+        print("Faces in the image: ")
         if len(face_results.faces) == 0:
             print("No faces detected.")
         else:
+            cnt = 0
             for face in face_results.faces:
+                cnt += 1
+                print(f"\nFace: {cnt}\n")
                 print("'{}' of age {} at location {}, {}, {}, {}".format(face.gender, face.age, \
                 face.face_rectangle.left, face.face_rectangle.top, \
                 face.face_rectangle.left + face.face_rectangle.width, \
                 face.face_rectangle.top + face.face_rectangle.height))
+
+                # attrs = face.face_attributes.as_dict()
+                # # occlusion
+                # if 'occlusion' in attrs:
+                #     print(" - Occlusion:")
+                #     for oc in attrs['occlusion']:
+                #         print("   - {}: {}".format(oc, attrs['occlusion'][oc]))
+                # # glasses
+                # if 'glasses' in attrs:
+                #     print(" - Glasses:")
+                #     for gl in attrs['glasses']:
+                #         print("   - {}: {}".format(gl, attrs['glasses'][gl]))
+                # # head pose
+                # if 'headPose' in attrs:
+                #     print(" - Head Pose:")
+                #     for hp in attrs['headPose']:
+                #         print("   - {}: {}".format(hp, attrs['headPose'][hp]))
+                # # hair
+                # if 'hair' in attrs: 
+                #     print(" - Hair:")
+                #     for ha in attrs['hair']:
+                #         print("   - {}: {}".format(ha, attrs['hair'][ha]))
+                # # makeup
+                # if 'makeup' in attrs:   
+                #     print(" - Makeup:") 
+                #     for mk in attrs['makeup']:
+                #         print("   - {}: {}".format(mk, attrs['makeup'][mk]))
+                # # emotions
+                # if 'emotion' in attrs:      
+                #     print(" - Emotions:")   
+                #     for em in attrs['emotion']: 
+                #         print("   - {}: {}".format(em, attrs['emotion'][em]))
+                # # smile 
+                # if 'smile' in attrs:            
+                #     print(" - Smile:")      
+                #     for sm in attrs['smile']:
+                #         print("   - {}: {}".format(sm, attrs['smile'][sm]))
+                # # facial hair
+                # if 'facialHair' in attrs:           
+                #     print(" - Facial Hair:")    
+                #     for fh in attrs['facialHair']:
+                #         print("   - {}: {}".format(fh, attrs['facialHair'][fh]))
+                # # accessories
+                # if 'accessories' in attrs:          
+                #     print(" - Accessories:")    
+                #     for ac in attrs['accessories']:
+                #         print("   - {}: {}".format(ac, attrs['accessories'][ac]))
+                # # clothes
+                # if 'clothing' in attrs:            
+                #     print(" - Clothing:")      
+                #     for cl in attrs['clothing']:
+                #         print("   - {}: {}".format(cl, attrs['clothing'][cl]))
+
+                # # blur
+                # if 'blur' in attrs:
+                #     print(" - Blur:")           
+                #     for bl in attrs['blur']:
+                #         print("   - {}: {}".format(bl, attrs['blur'][bl]))
 
         '''
         Detect Adult or Racy Content - detects adult or racy content

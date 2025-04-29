@@ -242,7 +242,7 @@ class ImageAnalysis:
     def detect_object(self, image_url,result_image) -> None:
         """
             Detect Objects - detect objects with bounding boxes in an image
-            
+
             :param image_url: image url
             :param result_image: image with detected objects
         """
@@ -254,7 +254,7 @@ class ImageAnalysis:
         if len(obj_results.objects) == 0:
             print("No objects detected.")
         else:
-            fig = plt.figure(figsize=(10, 10))
+            fig = plt.figure(figsize=(8, 8))
             plt.axis('off')
             image = Image.open(requests.get(image_url, stream=True).raw)
             draw = ImageDraw.Draw(image)

@@ -49,7 +49,7 @@ class TestImageAnalysisAzure(unittest.TestCase):
         #     print("failed!")
         self.assertTrue(1)
 
-    # @unittest.skip("test_image_analysis")
+    @unittest.skip("test_image_analysis")
     def test_image_analysis(self):
         """
             call module to analyze image
@@ -60,12 +60,14 @@ class TestImageAnalysisAzure(unittest.TestCase):
         # demo
         self.assertTrue(1)
 
-    @unittest.skip("test_tag_image")
+    # @unittest.skip("test_object_detect")
     def test_object_detect(self):
         """
             call module to detect object
         """
-        self.image_analysis.detect_object(self.imageuri)
+        # print(f"current dir: {current_dir}, parent dir: {parent_dir}")
+
+        self.image_analysis.detect_object(self.imageuri, "assets/detect_result.png")
 
         # demo
         self.assertTrue(1)

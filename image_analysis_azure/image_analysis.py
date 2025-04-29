@@ -24,6 +24,9 @@ from array import array
 import os
 import sys
 import time
+import matplotlib.pyplot as plt
+from PIL import Image, ImageDraw
+import requests
 
 
 class ImageAnalysis:
@@ -68,7 +71,7 @@ class ImageAnalysis:
             print('no categorie')
         else:
             for cat in cat_results.categories:
-                print("{}' with confidence {:.2f}%".format(cat.name, cat.score*100))
+                print(f"'{cat.name}' with confidence {cat.score*100:.2f}%")
 
         '''
         image brands - detects common brands like logos and puts a bounding box around them.
@@ -190,11 +193,11 @@ class ImageAnalysis:
 
         # Print results of color scheme
         print("Getting color scheme of the remote image: ")
-        print("Is black and white: {}".format(color_results.color.is_bw_img))
-        print("Accent color: {}".format(color_results.color.accent_color))
-        print("Dominant background color: {}".format(color_results.color.dominant_color_background))
-        print("Dominant foreground color: {}".format(color_results.color.dominant_color_foreground))
-        print("Dominant colors: {}".format(color_results.color.dominant_colors))
+        print(f"Is black and white: {color_results.color.is_bw_img}")
+        print(f"Accent color: {color_results.color.accent_color}")
+        print(f"Dominant background color: {color_results.color.dominant_color_background}")
+        print(f"Dominant foreground color: {color_results.color.dominant_color_foreground}")
+        print(f"Dominant colors: {color_results.color.dominant_colors}")
 
         '''
         Image Types - detects an image's type (clip art/line drawing).
@@ -236,11 +239,14 @@ class ImageAnalysis:
             for tag in tag_results.tags:
                 print("'{}' with confidence {:.2f}%".format(tag.name, tag.confidence * 100))
 
-    def detect_object(self, image_url):
+    def detect_object(self, image_url,result_image) -> None:
         """
-        Detect Objects - detect objects with bounding boxes in an image
+            Detect Objects - detect objects with bounding boxes in an image
+            
+            :param image_url: image url
+            :param result_image: image with detected objects
         """
-
+        
         print("detecting Objects...\n")
         # Call API with URL
         obj_results = self.computervisionclient.detect_objects(image_url)
@@ -248,10 +254,24 @@ class ImageAnalysis:
         if len(obj_results.objects) == 0:
             print("No objects detected.")
         else:
+            fig = plt.figure(figsize=(10, 10))
+            plt.axis('off')
+            image = Image.open(requests.get(image_url, stream=True).raw)
+            draw = ImageDraw.Draw(image)
+            color = 'cyan'
+
             for obj in obj_results.objects:
+                r = obj.rectangle
+                draw.rectangle([r.x, r.y, r.x+r.w, r.y+r.h], outline=color, width=2)
+                plt.annotate(obj.object_property, xy=(r.x, r.y), xycoords='data', color=color, weight='bold')
                 print("object at location {}, {}, {}, {}".format(\
                 obj.rectangle.x, obj.rectangle.x + obj.rectangle.w,\
                 obj.rectangle.y, obj.rectangle.y + obj.rectangle.h))
+
+            plt.imshow(image)
+            # save result
+            plt.savefig(result_image)
+            plt.show()
 
     def access_domain(self, image_url):
         """

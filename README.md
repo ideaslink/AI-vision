@@ -3,8 +3,14 @@ AI vision - image, video and their relevant contents.
 
 # Screenshot
 
+## Describing image
+
 ![Test image](assets/trump_td.jpg)
 ![Results](assets/image_analysis_results.PNG)
+
+## Detecting objects in image
+
+![Detect_objects_in image](assets/detect_result.png)
 
 # Description
 

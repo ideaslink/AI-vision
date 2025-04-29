@@ -254,7 +254,7 @@ class ImageAnalysis:
         if len(obj_results.objects) == 0:
             print("No objects detected.")
         else:
-            fig = plt.figure(figsize=(8, 8))
+            fig = plt.figure(figsize=(6, 4))
             plt.axis('off')
             image = Image.open(requests.get(image_url, stream=True).raw)
             draw = ImageDraw.Draw(image)

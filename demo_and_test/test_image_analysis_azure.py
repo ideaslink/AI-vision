@@ -60,7 +60,7 @@ class TestImageAnalysisAzure(unittest.TestCase):
         # demo
         self.assertTrue(1)
 
-    # @unittest.skip("test_object_detect")
+    @unittest.skip("test_object_detect")
     def test_object_detect(self):
         """
             call module to detect object
@@ -82,6 +82,14 @@ class TestImageAnalysisAzure(unittest.TestCase):
         # demo
         self.assertTrue(1)
 
+    # @unittest.skip("test_generate_thumbnail")
+    def test_generate_thumbnail(self):
+        """
+            call module to generate thumbnail
+        """
+        self.image_analysis.generate_thumbnail(self.imageuri, "assets/thumbnail.png")
+
+        self.assertTrue(1)
 
 if __name__ == "__main__":
     unittest.main()

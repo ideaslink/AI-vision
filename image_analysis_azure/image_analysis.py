@@ -273,6 +273,28 @@ class ImageAnalysis:
             plt.savefig(result_image)
             plt.show()
 
+    def generate_thumbnail(self, image_url, result_image) -> None:
+        """
+        Generate Thumbnail - generates a thumbnail for an image
+
+        :param image_url: image url
+        :param result_image: image with thumbnail
+        """
+        print("\ngenerating thumbnail...\n")
+
+        # Call API with URL
+        thumbnail_results = self.computervisionclient.generate_thumbnail(100, 100, image_url, True)
+
+        # Save thumbnail to file
+        with open(result_image, "wb") as thumbnail:
+            for chunk in thumbnail_results:
+                thumbnail.write(chunk)
+
+        # Display thumbnail
+        img = Image.open(result_image)
+        img.show()
+
+
     def access_domain(self, image_url):
         """
         Domain-specific Content - detects celebrites and landmarks in images

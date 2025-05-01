@@ -27,6 +27,7 @@ import time
 import matplotlib.pyplot as plt
 from PIL import Image, ImageDraw
 import requests
+import subprocess
 
 
 class ImageAnalysis:
@@ -247,7 +248,7 @@ class ImageAnalysis:
             :param result_image: image with detected objects
         """
         
-        print("detecting Objects...\n")
+        print("\ndetecting Objects...\n")
         # Call API with URL
         obj_results = self.computervisionclient.detect_objects(image_url)
 
@@ -264,7 +265,7 @@ class ImageAnalysis:
                 r = obj.rectangle
                 draw.rectangle([r.x, r.y, r.x+r.w, r.y+r.h], outline=color, width=2)
                 plt.annotate(obj.object_property, xy=(r.x, r.y), xycoords='data', color=color, weight='bold')
-                print("object at location {}, {}, {}, {}".format(\
+                print("\nobject at location {}, {}, {}, {}\n".format(\
                 obj.rectangle.x, obj.rectangle.x + obj.rectangle.w,\
                 obj.rectangle.y, obj.rectangle.y + obj.rectangle.h))
 
@@ -291,8 +292,10 @@ class ImageAnalysis:
                 thumbnail.write(chunk)
 
         # Display thumbnail
-        img = Image.open(result_image)
-        img.show()
+        # img = Image.open(result_image)
+        # img.show()
+        viewer_process = subprocess.Popen(["start", result_image], shell=True)
+        viewer_process.wait()  # Wait for the viewer to close
 
 
     def access_domain(self, image_url):

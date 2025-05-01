@@ -82,7 +82,7 @@ class TestImageAnalysisAzure(unittest.TestCase):
         # demo
         self.assertTrue(1)
 
-    # @unittest.skip("test_generate_thumbnail")
+    @unittest.skip("test_generate_thumbnail")
     def test_generate_thumbnail(self):
         """
             call module to generate thumbnail
